@@ -53,6 +53,10 @@ if [ -f /etc/motd ]; then
 fi
 
 # Configure motd
+if [ -f /opt ]; then
+    mkdir /opt
+fi
+
 mkdir /opt/meta
 touch /opt/meta/ssh_motd
 curl -s http://www.figlet.org/fonts/ogre.flf > /usr/share/figlet/ogre.flf
