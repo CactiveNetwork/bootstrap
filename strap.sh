@@ -56,7 +56,7 @@ fi
 mkdir /opt/meta
 touch /opt/meta/ssh_motd
 curl -s http://www.figlet.org/fonts/ogre.flf > /usr/share/figlet/ogre.flf
-echo "-----------------------------------------------------------------------------\n" > /opt/meta/ssh_motd
+echo "\n-----------------------------------------------------------------------------\n" > /opt/meta/ssh_motd
 figlet -f ogre $servername >> /opt/meta/ssh_motd
 echo "\n-----------------------------------------------------------------------------\n" >> /opt/meta/ssh_motd
 echo "This service is provided by Cactive.\n" >> /opt/meta/ssh_motd
@@ -80,8 +80,8 @@ echo "Configuring auth"
 git clone https://github.com/CactiveNetwork/auth/ /opt/auth
 cd /opt/auth
 npm i -D > /dev/null && tsc -p . > /dev/null && npm link
-cat "LOGIN_TOKEN=$connectionstoken\nVPS_NAME=$servername\n$SOCKET_LOCATION=wss://auth.cactive.network" > .env
-cat "auth   required    pam_exec.so stdout log=/var/log/auth.log /opt/auth/auth" > /etc/pam.d/sshd
+cat "\nLOGIN_TOKEN=$connectionstoken\nVPS_NAME=$servername\n$SOCKET_LOCATION=wss://auth.cactive.network" > .env
+cat "\nauth   required    pam_exec.so stdout log=/var/log/auth.log /opt/auth/auth" > /etc/pam.d/sshd
 
 # Start rich bootstrap
 node ./rich.js $githubtoken
