@@ -71,7 +71,7 @@ apt-get install -y nodejs
 
 # Install Node.js packages
 echo "Installing Node.js packages"
-npm install -g pm2 && pm2 setup
+npm install -g pm2 && pm2 startup
 npm install -g typescript
 npm i
 
