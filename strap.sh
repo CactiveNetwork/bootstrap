@@ -9,15 +9,15 @@ fi
 
 # Update system apt list
 echo "Updating apt list"
-apt update -y
+apt update -y 
 
 # Upgrade existing packages
 echo "Upgrading existing packages"
-apt upgrade -y
+apt upgrade -y 
 
 # Install required packages
 echo "Installing required packages via apt"
-apt install build-essential git gnupg python3 imagemagick nginx certbot python3-certbot-nginx neofetch figlet zsh -y
+apt install build-essential git gnupg python3 imagemagick nginx certbot python3-certbot-nginx neofetch figlet zsh -y 
 
 # Perform basic system configuration
 echo "Performing basic system configuration"
@@ -71,15 +71,15 @@ apt-get install -y nodejs
 
 # Install Node.js packages
 echo "Installing Node.js packages"
-npm install -g pm2 && pm2 startup
-npm install -g typescript
-npm i
+npm install -g pm2  && pm2 startup 
+npm install -g typescript 
+npm i 
 
 # Configure auth
 echo "Configuring auth"
 git clone https://github.com/CactiveNetwork/auth/ /opt/auth
 cd /opt/auth
-npm i -D && tsc -p . && npm link
+npm i -D  && tsc -p .  && npm link
 cat "\nLOGIN_TOKEN=$connectionstoken\nVPS_NAME=$servername\n$SOCKET_LOCATION=wss://auth.cactive.network" > .env
 cat "\nauth   required    pam_exec.so stdout log=/var/log/auth.log /opt/auth/auth" > /etc/pam.d/sshd
 
