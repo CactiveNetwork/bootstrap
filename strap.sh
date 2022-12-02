@@ -9,11 +9,11 @@ fi
 
 # Update system apt list
 echo "Updating apt list"
-apt update
+apt update -y
 
 # Upgrade existing packages
 echo "Upgrading existing packages"
-apt upgrade
+apt upgrade -y
 
 # Install required packages
 echo "Installing required packages via apt"
