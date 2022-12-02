@@ -38,6 +38,7 @@ read -p "Token: " githubtoken
 git config --global user.name "$servername"
 git config --global user.email "$servername@cactive.network"
 git config --global credential.helper store
+touch ~/.git-credentials
 cat "https://$githubuser:$githubtoken@github.com" > ~/.git-credentials
 
 # Set hostname
